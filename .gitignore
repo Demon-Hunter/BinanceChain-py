@@ -1,0 +1,8 @@
+.idea
+*.iml
+*.pyc
+build
+dist
+tbag.egg-info
+MANIFEST
+test
