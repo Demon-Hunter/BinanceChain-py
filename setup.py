@@ -4,7 +4,7 @@ from distutils.core import setup
 
 
 setup(
-    name="binance_chain",
+    name="binance-chain",
     version="1.0.0",
     packages=["binance_chain", ],
     description="Binance chain python SDK",
