@@ -39,8 +39,8 @@ you can get node information,
 import asyncio
 
 def test():
-    result, ok = await api.node_info()
-    print("ok:", ok)
+    result, err = await api.node_info()
+    print("err:", err)
     print("result:", result)
 
 asyncio.get_event_loop().run_until_complete(test())
@@ -48,23 +48,23 @@ asyncio.get_event_loop().run_until_complete(test())
 
 and you can use the fallowing methods like that:
 ```python
-    result, ok = await api.get_time()
-    result, ok = await api.node_info()
-    result, ok = await api.validators()
-    result, ok = await api.peers()
-    result, ok = await api.account(ADDRESS)
-    result, ok = await api.tx(TX_HASH)
-    result, ok = await api.tokens()
-    result, ok = await api.markets()
-    result, ok = await api.fees()
-    result, ok = await api.depth("NNB-0AD_BNB", 20)
-    result, ok = await api.klines("NNB-0AD_BNB", "1d")
-    result, ok = await api.orders_closed(ADDRESS, symbol="BNB_BTC.B-918")
-    result, ok = await api.orders_open(ADDRESS)
-    result, ok = await api.order(order_id)
-    result, ok = await api.ticker_24hr("000-0E1_BNB")
-    result, ok = await api.trades(ADDRESS)
-    result, ok = await api.transactions(ADDRESS)
+    result, err = await api.get_time()
+    result, err = await api.node_info()
+    result, err = await api.validators()
+    result, err = await api.peers()
+    result, err = await api.account(ADDRESS)
+    result, err = await api.tx(TX_HASH)
+    result, err = await api.tokens()
+    result, err = await api.markets()
+    result, err = await api.fees()
+    result, err = await api.depth("NNB-0AD_BNB", 20)
+    result, err = await api.klines("NNB-0AD_BNB", "1d")
+    result, err = await api.orders_closed(ADDRESS, symbol="BNB_BTC.B-918")
+    result, err = await api.orders_open(ADDRESS)
+    result, err = await api.order(order_id)
+    result, err = await api.ticker_24hr("000-0E1_BNB")
+    result, err = await api.trades(ADDRESS)
+    result, err = await api.transactions(ADDRESS)
 ```
 
 
