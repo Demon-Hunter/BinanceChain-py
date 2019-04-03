@@ -38,7 +38,7 @@ you can get node information,
 ```python
 import asyncio
 
-def test():
+async def test():
     result, err = await api.node_info()
     print("err:", err)
     print("result:", result)
