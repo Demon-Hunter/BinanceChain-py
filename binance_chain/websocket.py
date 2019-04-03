@@ -35,11 +35,15 @@ class BinanceChainWsStream:
 
         asyncio.get_event_loop().create_task(self._connect())
 
+    def __del__(self):
+        if self._ws:
+            asyncio.get_event_loop().create_task(self._ws.close())
+
     async def _connect(self):
         session = aiohttp.ClientSession()
         url = urljoin(self._wss, "/api")
         print("wss:", url, "proxy:", self._proxy)
-        self.ws = await session.ws_connect(url, proxy=self._proxy)
+        self._ws = await session.ws_connect(url, proxy=self._proxy)
         if self._connected_callback:
             asyncio.get_event_loop().create_task(self._connected_callback())
         asyncio.get_event_loop().create_task(self._receive())
@@ -99,5 +103,5 @@ class BinanceChainWsStream:
             d["address"] = address
         if symbols:
             d["address"] = address
-        await self.ws.send_json(d)
+        await self._ws.send_json(d)
         self._callbacks[topic] = callback

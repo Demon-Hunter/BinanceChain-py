@@ -41,48 +41,48 @@ class BinanceChainRestAPI:
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1time
         """
         uri = "/api/v1/time"
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def node_info(self):
         """ Get node information.
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1node-info
         """
         uri = "/api/v1/node-info"
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def validators(self):
         """ Get validators.
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1validators
         """
         uri = "/api/v1/validators"
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def peers(self):
         """ Get network peers.
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1peers
         """
         uri = "/api/v1/peers"
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def account(self, address):
         """ Get an account.
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1accountaddress
         """
         uri = "/api/v1/account/{address}".format(address=address)
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def account_sequence(self, address):
         """ Get an account sequence.
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1accountaddresssequence
         """
         uri = "/api/v1/account/{address}/sequence".format(address=address)
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def tx(self, hash_):
         """ Get a transaction.
@@ -90,32 +90,32 @@ class BinanceChainRestAPI:
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1txhash
         """
         uri = "/api/v1/tx/{hash_}?format=json".format(hash_=hash_)
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def tokens(self):
         """ Get tokens list.
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1tokens
         """
         uri = "/api/v1/tokens"
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def markets(self):
         """ Get market pairs.
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1markets
         """
         uri = "/api/v1/markets"
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def fees(self):
         """ Obtain trading fees information.
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1fees
         """
         uri = "/api/v1/fees"
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def depth(self, symbol, limit):
         """ Get the order book.
@@ -128,8 +128,8 @@ class BinanceChainRestAPI:
             "symbol": symbol,
             "limit": limit
         }
-        result, ok = await self.request("GET", uri, params)
-        return result, ok
+        result, err = await self.request("GET", uri, params)
+        return result, err
 
     async def broadcast(self, body, sync=None):
         """ Broadcast a transaction.
@@ -145,8 +145,8 @@ class BinanceChainRestAPI:
         headers = {
             "content-type": "text/plain"
         }
-        result, ok = await self.request("GET", uri, params=params, data=body, headers=headers)
-        return result, ok
+        result, err = await self.request("GET", uri, params=params, data=body, headers=headers)
+        return result, err
 
     async def klines(self, symbol, interval, limit=300, start=None, end=None):
         """ Get candlestick bars.
@@ -168,8 +168,8 @@ class BinanceChainRestAPI:
             params["startTime"] = start
         if end:
             params["endTime"] = end
-        result, ok = await self.request("GET", uri, params)
-        return result, ok
+        result, err = await self.request("GET", uri, params)
+        return result, err
 
     async def orders_closed(self, address, offset=0, limit=500, symbol=None, side=None, status=None, start=None,
                             end=None, total=0):
@@ -204,8 +204,8 @@ class BinanceChainRestAPI:
             params["start"] = start
         if end:
             params["end"] = end
-        result, ok = await self.request("GET", uri, params)
-        return result, ok
+        result, err = await self.request("GET", uri, params)
+        return result, err
 
     async def orders_open(self, address, offset=0, limit=500, symbol=None, total=0):
         """ Get open orders.
@@ -226,8 +226,8 @@ class BinanceChainRestAPI:
         }
         if symbol:
             params["symbol"] = symbol
-        result, ok = await self.request("GET", uri, params)
-        return result, ok
+        result, err = await self.request("GET", uri, params)
+        return result, err
 
     async def order(self, order_id):
         """ Get an order.
@@ -235,8 +235,8 @@ class BinanceChainRestAPI:
         refer: https://binance-chain.github.io/api-reference/dex-api/paths.html#apiv1ordersid
         """
         uri = "/api/v1/orders/{order_id}".format(order_id=order_id)
-        result, ok = await self.request("GET", uri)
-        return result, ok
+        result, err = await self.request("GET", uri)
+        return result, err
 
     async def ticker_24hr(self, symbol=None):
         """ Get a market ticker.
@@ -248,8 +248,8 @@ class BinanceChainRestAPI:
             params = {"symbol": symbol}
         else:
             params = None
-        result, ok = await self.request("GET", uri, params)
-        return result, ok
+        result, err = await self.request("GET", uri, params)
+        return result, err
 
     async def trades(self, address=None, symbol=None, buyer_order_id=None, seller_order_id=None, side=None, height=None,
                      quote_asset=None, offset=0, limit=500, start=None, end=None, total=0):
@@ -295,8 +295,8 @@ class BinanceChainRestAPI:
             params["start"] = start
         if end:
             params["end"] = end
-        result, ok = await self.request("GET", uri, params)
-        return result, ok
+        result, err = await self.request("GET", uri, params)
+        return result, err
 
     async def transactions(self, address, block_height=None, side=None, offset=None, limit=None, start=None, end=None,
                            tx_asset=None, tx_type=None):
@@ -333,8 +333,8 @@ class BinanceChainRestAPI:
             params["txAsset"] = tx_asset
         if tx_type:
             params["txType"] = tx_type
-        result, ok = await self.request("GET", uri, params)
-        return result, ok
+        result, err = await self.request("GET", uri, params)
+        return result, err
 
     async def request(self, method, uri, params=None, body=None, data=None, headers=None):
         """ HTTP request
@@ -344,7 +344,6 @@ class BinanceChainRestAPI:
         """
         url = urljoin(self._host, uri)
         try:
-            print("request url:", url, "proxy:", self._proxy)
             response = await self._session.get(url, params=params, json=body, data=data, headers=headers,
                                                timeout=self._timeout, proxy=self._proxy)
             if response.status != 200:
