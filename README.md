@@ -25,7 +25,7 @@ pip install binance-chain
 
 ##### REST API client
 
-create a rest api client instance
+First, create a rest api client instance.
 ```python
 from binance_chain.rest_api import BinanceChainRestAPI
 
@@ -34,7 +34,7 @@ HOST = "https://testnet-dex.binance.org"
 api = BinanceChainRestAPI(HOST)
 ```
 
-- Get node information.
+you can get node information,
 ```python
 import asyncio
 
@@ -70,7 +70,7 @@ and you can use the fallowing methods like that:
 
 ##### Websocket Stream data client
 
-create a websocket stream data client instance, and subscribe topics, or unsubscribe topics.
+Create a websocket stream data client instance, and subscribe topics, or unsubscribe topics.
 ```python
 import asyncio
 
