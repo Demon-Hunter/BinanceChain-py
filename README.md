@@ -107,8 +107,8 @@ asyncio.get_event_loop().run_forever()
 ```python
 from binance_chain import consts
 
-consts.METHOD_SUBSCRIBE
-consts.METHOD_UNSUBSCRIBE
+consts.METHOD_SUBSCRIBE  # subscribe
+consts.METHOD_UNSUBSCRIBE  # unsubscribe
 ```
 
 - topics
